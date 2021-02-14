@@ -27,7 +27,7 @@ if (!$_GET("dir")) {
                 var filmName = film.replace(/(\.[a-zA-Z0-9]+)/, "");
                 var filmExtension = film.split('.').pop().toLowerCase();
                 if (filmExtension != "avi") {
-                    const createMiniature = spawn("ffmpeg", ["-ss", (Math.floor(Math.random() * (3000 - 300)) + 300).toString(), "-i", config.absolutePathToFilm + "/" + film, "-vframes", "1", "-y", "../miniature/" + filmName + ".png"])
+                    const createMiniature = spawn("ffmpeg", ["-ss", (Math.floor(Math.random() * (3000 - 300)) + 300).toString(), "-i", config.absolutePathToFilm + "/" + film, "-vframes", "1", "-y", "./asset/miniature/" + filmName + ".png"])
 
                     var img = document.createElement("img");
 
