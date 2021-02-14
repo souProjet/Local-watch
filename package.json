@@ -18,9 +18,5 @@
   "license": "CC0-1.0",
   "devDependencies": {
     "electron": "^11.2.3"
-  },
-  "dependencies": {
-    "converter": "^0.0.5",
-    "xmlbuilder": "^0.4.3"
   }
 }
