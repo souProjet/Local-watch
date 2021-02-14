@@ -1,5 +1,5 @@
 {
-  "name": "Local Watch",
+  "name": "local-watch",
   "version": "1.0.0",
   "description": "Regarder les films local de votre PC",
   "main": "main.js",
