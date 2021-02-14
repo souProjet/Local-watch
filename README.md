@@ -6,4 +6,4 @@
 
 **Start Local Watch :**
 - Windows : execute the localwatch.bat file
-- Linux : ```shell sudo ./localwatch.sh```
+- Linux : ```sudo ./localwatch.sh```
