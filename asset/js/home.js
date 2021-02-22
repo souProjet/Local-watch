@@ -1,5 +1,6 @@
 const { spawn } = require("child_process");
 var config = require("./config.json");
+var fs = require('fs'); 
 
 function $_GET(param) {
     var vars = {};
@@ -31,7 +32,7 @@ if (!$_GET("dir")) {
 
                     var img = document.createElement("img");
 
-                    img.src = "./asset/miniature/" + filmName + ".png";
+                    img.src = fs.existsSync("./asset/miniature/" + filmName + ".png") ? "./asset/miniature/" + filmName + ".png" : "./asset/miniature/default.png";
                     img.style.height = "120px";
                     img.style.width = "290px";
 
@@ -79,7 +80,7 @@ if (!$_GET("dir")) {
 
                 var img = document.createElement("img");
 
-                img.src = "./asset/miniature/" + filmName + ".png";
+                img.src = fs.existsSync("./asset/miniature/" + filmName + ".png") ? "./asset/miniature/" + filmName + ".png" : "./asset/miniature/default.png";
                 img.style.height = "120px";
                 img.style.width = "290px";
 
@@ -95,3 +96,4 @@ if (!$_GET("dir")) {
         }
     });
 }
+

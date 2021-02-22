@@ -4044,9 +4044,7 @@ if (dir == "none") {
 } else {
     ls = spawn("ls", [config.absolutePathToFilm + "/" + dir]);
 }
-
 ls.stdout.on("data", data => {
-
     if (dir == "none") {
         var art = new Artplayer({
             container: '.artplayer-app',
@@ -4147,8 +4145,6 @@ ls.stdout.on("data", data => {
 
             ]
         });
-
-
         let notice = false;
         art.on('networkMonitor', (ratio) => {
             if (ratio >= 0.5 && !notice) {
@@ -4159,6 +4155,20 @@ ls.stdout.on("data", data => {
 
         // Modify sampling time, the unit is milliseconds, default 10 seconds.
         art.plugins.networkMonitor.sample(30000);
+    }
+    var video = document.querySelector('video');
+    var filmTitle = data.toString().split("\n")[film].toLowerCase().replace(/(\.[a-z0-9]+)/, "");
+    setInterval(function () {
+        if (video.duration - video.currentTime < 120) {
+            if (localStorage.getItem(filmTitle)) {
+                localStorage.removeItem(filmTitle);
+            }
+        } else {
+            localStorage.setItem(filmTitle, video.currentTime);
+        }
+    }, 10000);
+    if (localStorage.getItem(filmTitle)) {
+        video.currentTime = localStorage.getItem(filmTitle);
     }
 });
 
